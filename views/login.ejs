@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Songs Library</title>
+  </head>
+  <body>
+    <div class="main min-h-screen bg-zinc-300 p-10">
+        <h1 class="text-2xl m-5 text-zinc-700 text-center">Type Your Credentials</h1>
+        <form class="mt-10 items-center flex flex-col" action="/login" method="post">
+          <input
+            class="w-80 m-2 px-3 py-2 rounded-md text-md outline-none"
+            type="username"
+            name="username"
+            placeholder="username"
+            required
+          />
+          <input
+            class="w-80 m-2 px-3 py-2 rounded-md text-md outline-none"
+            type="password"
+            name="password"
+            placeholder="password"
+            required
+          />
+          <input
+            class="px-6 py-1 rounded-md bg-red-300 cursor-pointer mt-6"
+            type="submit"
+            value="Login"
+          />
+        </form>
+    </div>
+  </body>
+</html>

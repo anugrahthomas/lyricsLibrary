@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Songs Library</title>
+  </head>
+  <body>
+    <div class="main min-h-screen bg-zinc-300 p-10">
+        <h1 class="text-2xl text-center">Create New Song</h1>
+        <form class="flex flex-col items-center justify-center mt-10"  action="/create" method="post">
+            <input class="w-80 px-2 py-1 text-md rounded-md m-2 outline-none" type="text" name="title" placeholder="Title" required>
+            <textarea class="w-80 h-80 resize-none px-2 py-1 text-md rounded-md m-2 outline-none" type="text" name="song" placeholder="song" required></textarea>
+            <input class="px-4 py-1 rounded-md bg-red-300 mt-6 cursor-pointer" type="submit" value="Create">
+            <a class="px-4 py-1 rounded-md bg-emerald-700 text-white mt-2" href="/logout">Logout</a>
+        </form>
+    </div>
+  </body>
+</html>

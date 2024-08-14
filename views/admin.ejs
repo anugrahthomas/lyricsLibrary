@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Songs Library</title>
+  </head>
+  <body>
+    <div class="main min-h-screen bg-zinc-300">
+      <h1 class="text-center text-2xl inline-block my-4 w-full">
+        Admin Dashboard
+      </h1>
+      <div class="flex justify-around border-b-2 py-2 border-zinc-400 mb-4">
+        <a class="px-4 py-1 bg-red-600 text-white rounded-md" href="/create"
+          >Create Song</a
+        >
+        <a class="px-4 py-1 bg-blue-600 text-white rounded-md" href="/signup"
+          >Create User</a
+        >
+
+        <a class="px-4 py-1 bg-emerald-700 text-white rounded-md" href="/logout"
+          >Logout</a
+        >
+      </div>
+      <h1 class="text-center text-2xl">Users Details</h1>
+      <div class="px-5 py-2 flex flex-wrap border-b-2 border-zinc-400 mb-4">
+        <% if(users.length > 0){ %> <% users.forEach(user => { %>
+        <div
+          class="m-1 h-auto max-w-max min-w-[19rem] p-2 rounded-md border-2 border-zinc-400"
+        >
+          <h1 class="text-md"><%= user.name %></h1>
+          <div class="flex justify-between px-2">
+            <p class="text-sm tracking-tighter">
+              username - <%= user.username %>
+            </p>
+           <% if(!user.isAdmin){ %>
+            <a class="text-sm text-red-700" href="/delete/<%= user._id %>"
+              >Delete</a
+            >
+           <% }else{ %>
+            <h1 class="text-sm text-blue-700">Admin</h1>
+         <%  } %>
+          </div>
+        </div>
+        <% })}else {%>
+        <div
+          class="m-1 h-auto max-w-max p-2 rounded-md border-2 border-zinc-400"
+        >
+          <h1 class="text-zinc-800 font-sans text-center">No Users Found</h1>
+        </div>
+        <% } %>
+      </div>
+      <h1 class="text-2xl text-center">Songs Details</h1>
+      <div class="flex flex-wrap body px-5 py-2">
+        <% if(songs.length > 0){ songs.forEach(song => { %>
+        <div
+          class="m-1 h-auto max-w-max min-w-[19rem] p-2 rounded-md border-2 border-zinc-400"
+        >
+          <div class="flex justify-between">
+            <h1 class="text-zinc-800 font-sans"><%= song.title %></h1>
+            <% users.forEach(user => {if(user._id.valueOf() === song.createdBy.valueOf()){ %>
+            <h1 class="font-sans tracking-tighter">
+              created by - <%= user.name %>
+            </h1>
+          
+            <% }}) %>
+          </div>
+          <div class="flex justify-between px-2">
+            <a
+              class="inline-block pt-2 text-sm tracking-tighter text-blue-500 font-sans"
+              href="/song/<%=song._id%>"
+              >show more...</a
+            >
+            <a class="text-red-700 text-sm pt-2" href="/remove/<%= song._id %>"
+              >Delete</a
+            >
+          </div>
+        </div>
+        <% })}else {%>
+        <div
+          class="m-1 h-auto max-w-max p-2 rounded-md border-2 border-zinc-400"
+        >
+          <h1 class="text-zinc-800 font-sans text-center">No Content Found</h1>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

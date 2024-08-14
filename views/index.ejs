@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Songs Library</title>
+  </head>
+  <body>
+    <div class="main min-h-screen bg-zinc-300">
+      <div
+        class="navbar border-2 border-zinc-400 px-2 py-2 flex items-center gap-1 flex-wrap justify-center"
+      >
+        <a href="/"> <img class="h-14" src="/images/logo.png" /></a>
+        <div class="flex gap-3 mx-2">
+          <form action="/search" method="post">
+            <input
+              class="rounded-md text-md tracking-tighter px-2 py-1 outline-none font-sans"
+              type="text"
+              name="search"
+              placeholder="Search Song"
+              required
+            />
+            <input
+              class="px-2 py-1 bg-red-300 rounded-md ml-2 cursor-pointer font-sans"
+              type="submit"
+              value="search"
+            />
+          </form>
+        </div>
+        <div class="flex gap-3 mx-20">
+          <a
+            class="px-5 py-1 bg-red-300 rounded-md my-2 cursor-pointer font-sans"
+            href="/login"
+            >Login to add Song</a
+          >
+        </div>
+      </div>
+      <div class="flex flex-wrap body p-5">
+        <% if(songs.length > 0){ songs.forEach(song => { %>
+        <div
+          class="m-1 h-auto max-w-max min-w-[19rem] p-2 rounded-md border-2 border-zinc-400"
+        >
+          <h1 class="text-zinc-800 font-sans"><%= song.title %></h1>
+          <a
+            class="inline-block pt-2 text-sm tracking-tighter text-blue-500 font-sans"
+            href="/song/<%=song._id%>"
+            >show more...</a
+          >
+        </div>
+        <% })}else {%>
+        <div
+          class="m-1 h-auto max-w-max p-2 rounded-md border-2 border-zinc-400"
+        >
+          <h1 class="text-zinc-800 font-sans text-center">No Content Found</h1>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
