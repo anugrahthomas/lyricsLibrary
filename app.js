@@ -59,10 +59,10 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/create", isLoggedIn, (req, res) => {
+app.get("/create",isLoggedIn, (req, res) => {
   res.render("create");
 });
-app.post("/create", isLoggedIn, async (req, res) => {
+app.post("/create",isLoggedIn, async (req, res) => {
   const { title, song } = req.body;
   const userFind = await userModel.find({ _id: req.user.userId });
   const songFind = await songModel.find({ title: title });
