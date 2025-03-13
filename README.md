@@ -36,7 +36,6 @@ npm start
 
 ## Images
 
-You can add images related to the project in this section. For example:
 
 Admin Dashboard
 ![Screenshot](./public/images/Screenshot%202025-03-08%20at%209.34.13 PM.png)
